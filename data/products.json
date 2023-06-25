@@ -1,0 +1,38 @@
+[
+    {
+        "name": "Apples",
+        "price": "R 10.00"
+    },
+    {
+        "name": "Bananas",
+        "price": "R 9.00"
+    },
+    {
+        "name": "Mangos",
+        "price": "R 12.00"
+    },
+    {
+        "name": "Strawberries",
+        "price": "R 11.00"
+    },
+    {
+        "name": "Oranges",
+        "price": "R 8.00"
+    },
+    {
+        "name": "Pears",
+        "price": "R 15.00"
+    },
+    {
+        "name": "Tomatoes",
+        "price": "R 7.00"
+    },
+    {
+        "name": "Avocados",
+        "price": "R 15.00"
+    },
+    {
+        "name": "Grapes",
+        "price": "R 18.00"
+    }
+]

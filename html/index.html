@@ -12,38 +12,44 @@
     <h1>Shopping Cart</h1>
   </header>
   <main>
-    <article id="items">
-      <form>
-        <fieldset>
-          <legend>
-            Items added to cart
-          </legend>
-          <p>
-            <input type="checkbox" name="perishables" id="apple" value="apple">
-            <label for="apple">Apple</label> 
-          </p> 
-          <p>
-            <input type="checkbox" name="perishables" id="banana" value="banana">
-            <label for="banana">Banana</label>
-          </p>  
-          <p>
-            <input type="checkbox" name="perishables" id="mango" value="mango">
-            <label for="mango">Mango</label> 
-          </p> 
-          <p>
-            <input type="checkbox" name="perishables" id="strawberry" value="strawberry">
-            <label for="strawberry">Strawberry</label> 
-          </p>
-          <p>
-            <input type="checkbox" name="perishables" id="orange" value="orange">
-            <label for="orange">Orange</label>
-          </p>  
-        </fieldset>
-      </form>
-    </article>
-    <article>
-
-    </article>
+    <form>
+      <fieldset>
+        <legend>
+          Items added to cart
+        </legend>
+        <p>
+          <input type="checkbox" name="perishables" id="apples" value="apples">
+          <label for="apples">Apples</label> 
+        </p> 
+        <p>
+          <input type="checkbox" name="perishables" id="bananas" value="bananas">
+          <label for="bananas">Bananas</label>
+        </p>  
+        <p>
+          <input type="checkbox" name="perishables" id="mangos" value="mangos">
+          <label for="mangos">Mangos</label> 
+        </p> 
+        <p>
+          <input type="checkbox" name="perishables" id="strawberries" value="strawberries">
+          <label for="strawberries">Strawberries</label> 
+        </p>
+        <p>
+          <input type="checkbox" name="perishables" id="oranges" value="oranges">
+          <label for="oranges">Oranges</label>
+        </p>  
+      </fieldset>
+      <p>
+        <select name="perishables" id="items">
+          <option value="pears">Pears</option>
+          <option value="tomatoes">Tomatoes</option>
+          <option value="avocados">Avocados</option>
+        </select>
+      </p>
+      <p>
+        <button type="submit">Submit</button>
+        <button type="reset">Reset</button>
+      </p>
+    </form>
   </main>
   <footer>
     <p>&copy; Selebogo Mosoeu</p>
