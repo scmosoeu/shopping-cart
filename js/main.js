@@ -16,9 +16,10 @@ function initialDropdownItems(items) {
     const itemName = item.name.toLowerCase();
     // Create option element
     const node = document.createElement("option");
-    node.innerText = item.name;
+    node.innerText = itemName;
     // Create Element Attributes
     node.setAttribute("value", itemName);
+    node.setAttribute('class', 'cart-item');
     dropDownItem.append(node)
   })
 }
@@ -27,3 +28,13 @@ fetch(jsonData)
   .then(response => response.json())
   .then(data => initialDropdownItems(data))
   .catch(err => console.log(err))
+
+/*********************** ADD ITEMS TO CART **********************/
+
+// Select item from a dropdown menu
+const selectItem = document.getElementById("dropdown-items");
+
+// Identify the name of the element selected from dropdown menu
+selectItem.addEventListener('change', () => {
+  console.log(selectItem.value)
+})
