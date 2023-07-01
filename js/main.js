@@ -2,14 +2,6 @@ let jsonData = "../data/products.json"
 
 let dropDownItem = document.getElementById("dropdown-items")
 
-// fetch(jsonData)
-//     .then((response) => response.json())
-//     .then((data) => {
-//         data.forEach(item => {
-//             console.log(item.name)
-//         })
-//     })
-//     .catch((err) => console.log(err))
 
 fetch(jsonData)
     .then((response) => response.json())
