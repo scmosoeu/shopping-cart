@@ -31,10 +31,24 @@ fetch(jsonData)
 
 /*********************** ADD ITEMS TO CART **********************/
 
+// Select fieldset item
+const fieldSet = document.querySelector("#check-items");
+
 // Select item from a dropdown menu
 const selectItem = document.getElementById("dropdown-items");
 
-// Identify the name of the element selected from dropdown menu
-selectItem.addEventListener('change', () => {
-  console.log(selectItem.value)
+// Select a button element
+const addBtn = document.querySelector(".add-btn");
+
+addBtn.addEventListener('click', e => {
+  e.preventDefault();
+  // Get the item name selected from the dropdown menu
+  itemName = selectItem.value;
+  // Create a paragraph element
+  const p = document.createElement('p');
+  p.innerHTML = `
+    <input type="checkbox" name="perishables" id="${itemName}" value="${itemName}">
+    <label for="${itemName}">${itemName}</label>
+  `
+  fieldSet.appendChild(p)
 })
