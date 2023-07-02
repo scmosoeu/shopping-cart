@@ -19,6 +19,7 @@ function initialDropdownItems(items) {
     node.innerText = itemName;
     // Create Element Attributes
     node.setAttribute("value", itemName);
+    node.setAttribute("id", itemName);
     node.setAttribute('class', 'cart-item');
     dropDownItem.append(node)
   })
@@ -44,6 +45,11 @@ addBtn.addEventListener('click', e => {
   e.preventDefault();
   // Get the item name selected from the dropdown menu
   itemName = selectItem.value;
+
+  // Get the selected item from dropdown menu and remove it
+  const selectedItem = document.getElementById(itemName);
+  selectedItem.remove()
+  
   // Create a paragraph element
   const p = document.createElement('p');
   p.innerHTML = `
@@ -52,3 +58,27 @@ addBtn.addEventListener('click', e => {
   `
   fieldSet.appendChild(p)
 })
+
+/******************* REMOVE ITEMS FROM CART **********************/
+// Array of items selected
+let chosenItems = [];
+
+fieldSet.addEventListener('click', e => {
+  if(e.target.type === 'checkbox') {
+    const checkBox = document.querySelectorAll('input[type="checkbox"]:checked')
+
+    // Get the label tag
+    const labelElement = e.target.nextElementSibling;
+    if(e.target.checked) {
+      // Scratch the label
+      labelElement.style.textDecoration = "line-through";
+    } else {
+      labelElement.style.textDecoration = "none";
+    }
+    
+    chosenItems = Array.from(checkBox).map(x => x.value)
+    console.log(chosenItems)
+  }
+})
+
+
