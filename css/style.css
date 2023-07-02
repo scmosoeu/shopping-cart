@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
+/* || RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* || VARIABLES */
+:root {
+  /* COLORS */
+  --BGCOLOR: whitesmoke;
+  --MAIN-BGCOLOR: lightgray;;
+  --BORDER-COLOR: #333; 
+
+  /* GENERAL */
+  --FF: "Ubuntu", sans-serif;
+
+  /* BORDERS */
+  --BORDER: 2px solid var(--BORDER-COLOR);
+}
+
+/* || TAGS */
+body {
+  background-color: var(--BGCOLOR);
+  font-family: var(--FF);
+}
+
+header {
+  display: flex;
+  justify-content: center;
+}
+
+img {
+  display: block;
+  width: 5%;
+  height: auto;
+}
+
+/* || CLASSES */
