@@ -26,9 +26,9 @@ function initialDropdownItems(items) {
 }
 
 fetch(jsonData)
-  .then(response => response.json())
-  .then(data => initialDropdownItems(data))
-  .catch(err => console.log(err))
+.then(response => response.json())
+.then(data => initialDropdownItems(data))
+.catch(err => console.log(err))
 
 /*********************** ADD ITEMS TO CART **********************/
 
@@ -73,6 +73,7 @@ fieldSet.addEventListener('click', e => {
       // Scratch the label
       labelElement.style.textDecoration = "line-through";
     } else {
+      // Default style
       labelElement.style.textDecoration = "none";
     }
     
