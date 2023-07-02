@@ -84,13 +84,12 @@ function selectCartItem(e) {
     if(e.target.checked) {
       // Scratch the label
       labelElement.style.textDecoration = "line-through";
+      labelElement.style.fontWeight = "bold";
     } else {
       // Default style
       labelElement.style.textDecoration = "none";
+      labelElement.style.fontWeight = "normal";
     }
-    
-    // chosenItems = Array.from(checkBox).map(x => x.value)
-    // console.log(chosenItems)
   }
 }
 
@@ -98,13 +97,15 @@ function selectCartItem(e) {
 function removeCartItem(e) {
 
   e.preventDefault();
+
+  // Select checked items
   const checkedItems = document.querySelectorAll('input[type="checkbox"]:checked')
   
+  // For each selected item get the labels and delete
   checkedItems.forEach(checkedItem => {
 
     const checkedLabel = checkedItem.nextElementSibling;
     const labelName = checkedLabel.textContent;
-    console.log(labelName)
     insertDropdownItems([
       {
         name: labelName
