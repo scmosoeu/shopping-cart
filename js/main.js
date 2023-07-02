@@ -1,16 +1,27 @@
-/********************** SET CURRENT IN THE FOOTER ****************/
+// DEFINE UI VARIABLES 
+let dropDownItem = document.getElementById("dropdown-items");
+const fieldSet = document.querySelector("#check-items");
+const selectItem = document.getElementById("dropdown-items");
+const addBtn = document.querySelector(".add-btn");
+const deleteBtn = document.querySelector(".delete-btn");
+
+
+// DEFINE CONSOLE VARIABLES
+// Array of items selected
+let chosenItems = [];
+
+// SET CURRENT IN THE FOOTER 
 // Insert year on the footer of the html
 const year = document.getElementById("year");
 const currentYear = new Date()
 year.innerText = currentYear.getFullYear();
 
-/********************* JSON DATA INITIAL INGESTION ***************/
+// JSON DATA INITIAL INGESTION 
 
 const jsonData = "../data/products.json"
-let dropDownItem = document.getElementById("dropdown-items")
 
 // Insert items in the Drop-Down Menu
-function initialDropdownItems(items) {
+function insertDropdownItems(items) {
   items.forEach(item => {
     // Get Item name from name JSON field
     const itemName = item.name.toLowerCase();
@@ -27,22 +38,24 @@ function initialDropdownItems(items) {
 
 fetch(jsonData)
 .then(response => response.json())
-.then(data => initialDropdownItems(data))
+.then(data => insertDropdownItems(data))
 .catch(err => console.log(err))
 
-/*********************** ADD ITEMS TO CART **********************/
+// EVENT LISTENERS
+loadEventListeners();
 
-// Select fieldset item
-const fieldSet = document.querySelector("#check-items");
+function loadEventListeners() {
+  // Add item to cart
+  addBtn.addEventListener('click', addCartItem);
+  // Select item from cart
+  fieldSet.addEventListener('click', selectCartItem);
+  // Remove item from cart
+  deleteBtn.addEventListener('click', removeCartItem);
+}
 
-// Select item from a dropdown menu
-const selectItem = document.getElementById("dropdown-items");
-
-// Select a button element
-const addBtn = document.querySelector(".add-btn");
-
-addBtn.addEventListener('click', e => {
-  e.preventDefault();
+// ADD ITEMS TO CART 
+function addCartItem(e) {
+  
   // Get the item name selected from the dropdown menu
   itemName = selectItem.value;
 
@@ -57,15 +70,14 @@ addBtn.addEventListener('click', e => {
     <label for="${itemName}">${itemName}</label>
   `
   fieldSet.appendChild(p)
-})
 
-/******************* REMOVE ITEMS FROM CART **********************/
-// Array of items selected
-let chosenItems = [];
+  e.preventDefault();
+}
 
-fieldSet.addEventListener('click', e => {
+// SELECT ITEMS IN CART 
+function selectCartItem(e) {
   if(e.target.type === 'checkbox') {
-    const checkBox = document.querySelectorAll('input[type="checkbox"]:checked')
+    // const checkBox = document.querySelectorAll('input[type="checkbox"]:checked')
 
     // Get the label tag
     const labelElement = e.target.nextElementSibling;
@@ -77,9 +89,31 @@ fieldSet.addEventListener('click', e => {
       labelElement.style.textDecoration = "none";
     }
     
-    chosenItems = Array.from(checkBox).map(x => x.value)
-    console.log(chosenItems)
+    // chosenItems = Array.from(checkBox).map(x => x.value)
+    // console.log(chosenItems)
   }
-})
+}
 
+// REMOVE ITEMS FROM CART 
+function removeCartItem(e) {
 
+  e.preventDefault();
+  const checkedItems = document.querySelectorAll('input[type="checkbox"]:checked')
+  
+  checkedItems.forEach(checkedItem => {
+
+    const checkedLabel = checkedItem.nextElementSibling;
+    const labelName = checkedLabel.textContent;
+    console.log(labelName)
+    insertDropdownItems([
+      {
+        name: labelName
+      }
+    ]);
+
+    checkedLabel.remove();
+    checkedItem.remove();
+  })
+
+  e.preventDefault();
+}
