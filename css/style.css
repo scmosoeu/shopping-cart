@@ -10,8 +10,8 @@
 /* || VARIABLES */
 :root {
   /* COLORS */
-  --BGCOLOR: whitesmoke;
-  --MAIN-BGCOLOR: lightgray;;
+  --BGCOLOR: lightgray;
+  --MAIN-BGCOLOR: whitesmoke;
   --BORDER-COLOR: #333; 
 
   /* GENERAL */
@@ -25,17 +25,110 @@
 body {
   background-color: var(--BGCOLOR);
   font-family: var(--FF);
+  height: 100%;
+
 }
 
-header {
+header,
+nav,
+main {
   display: flex;
   justify-content: center;
 }
 
+header {
+  padding-bottom: 10px;
+}
+
+footer {
+  font-weight: bold;
+  padding-top: 10px;
+  position: sticky;
+  bottom: 0;
+}
+
+h1 {
+  margin-left: 10px;
+  padding: 20px 0;
+  font-size: 3rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+}
+
+p {
+  display: flex;
+  justify-content: center;
+}
+
+main {
+  background-color: var(--MAIN-BGCOLOR);
+  padding-bottom: 20px;
+}
+
 img {
   display: block;
-  width: 5%;
+  width: 10%;
   height: auto;
 }
 
-/* || CLASSES */
+legend {
+  font-size: 2rem;
+}
+
+input,
+label,
+button {
+  font: inherit;
+}
+
+label {
+  padding: 0.5em 0 0.5em 0.3em;
+  font-size: 1.3rem;
+}
+
+button {
+  border-radius: 10px;
+  padding: 0.5em 1em;
+}
+
+
+
+/* || CLASSES & ID */
+
+
+.delete-btn {
+  margin: 10px 0 20px;
+  border: none;
+  background-color: red;
+  color: white;
+}
+
+.add-btn {
+  margin-left: 10px;
+  border: none;
+  background-color: limegreen;
+  color: white;
+}
+
+#dropdown-items {
+  width: max-content;
+  height: inherit;
+}
+
+#check-items {
+  width: inherit;
+  justify-content: center;
+  border: none;
+  margin: 20px 0px;
+  min-height: 100px;
+}
+
+#check-items legend {
+  font-weight: bold;
+  text-align: center;
+}
